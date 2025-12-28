@@ -1,0 +1,9 @@
+name: "Hanet Camera Bridge"
+version: "2.5.0" # Mỗi lần có bản mới, bạn chỉ cần sửa số này ở Repo Public
+slug: "hanet_bridge"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+# Home Assistant sẽ tự thay {arch} bằng kiến trúc máy khách đang dùng
+image: "ghcr.io/trankhanhduy2929-beep/my-addon-{arch}"
