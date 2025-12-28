@@ -16,5 +16,5 @@ hassio_role: manager
 hassio_api: true
 homeassistant_api: true
 
-# THÊM ĐUÔI :latest VÀO ĐÂY ĐỂ ĐẢM BẢO LUÔN TÌM THẤY IMAGE
-image: "ghcr.io/trankhanhduy2929-beep/youtube_cast_addon-{arch}:latest"
+# XÓA BỎ ":latest" - Supervisor sẽ tự ghép version "1.14.0" vào sau {arch}
+image: "ghcr.io/trankhanhduy2929-beep/youtube_cast_addon-{arch}"
