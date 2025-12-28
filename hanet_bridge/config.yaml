@@ -1,6 +1,6 @@
 {
   "name": "Hanet Camera Bridge",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "slug": "hanet_bridge",
   "description": "Kết nối Hanet AI Camera qua MQTT và Webhook (Port 2912). Bản LITE bảo mật",
   "url": "https://github.com/trankhanhduy2929-beep/my_hass_addon_public",
