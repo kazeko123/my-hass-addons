@@ -1,15 +1,20 @@
-name: "YouTube Cast Addon Pro"
-version: "2.5.0"
+name: "YouTube Music Cinematic"
+description: "Trình phát nhạc YouTube cao cấp: Tự đề xuất, Infinite Scroll, Proxy Stream & Favorites"
+version: "1.14.0"
 slug: "youtube_cast_addon"
-description: "Bản quyền bởi trankhanhduy2929-beep. Chạy trực tiếp từ Image bảo mật."
-url: "https://github.com/trankhanhduy2929-beep/my_hass_addon_public"
 arch:
   - aarch64
   - amd64
   - armv7
-startup: application
-boot: auto
+  - armhf
+init: false
+panel_icon: "mdi:music-box-multiple"
+panel_title: "YT Music"
 ingress: true
-ingress_port: 2912
-# ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT
+ingress_port: 2232
+hassio_role: manager
+hassio_api: true
+homeassistant_api: true
+
+# ĐƯỜNG DẪN IMAGE BẢO MẬT (Sửa lại cho đúng tên Package trên GitHub của Duy)
 image: "ghcr.io/trankhanhduy2929-beep/youtube_cast_addon-{arch}"
