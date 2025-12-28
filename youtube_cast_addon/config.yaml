@@ -16,5 +16,5 @@ hassio_role: manager
 hassio_api: true
 homeassistant_api: true
 
-# ĐƯỜNG DẪN IMAGE BẢO MẬT (Sửa lại cho đúng tên Package trên GitHub của Duy)
-image: "ghcr.io/trankhanhduy2929-beep/youtube_cast_addon-{arch}"
+# THÊM ĐUÔI :latest VÀO ĐÂY ĐỂ ĐẢM BẢO LUÔN TÌM THẤY IMAGE
+image: "ghcr.io/trankhanhduy2929-beep/youtube_cast_addon-{arch}:latest"
