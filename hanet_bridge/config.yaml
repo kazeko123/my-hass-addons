@@ -2,6 +2,15 @@
   "name": "Hanet Camera Bridge",
   "version": "2.5.0",
   "slug": "hanet_bridge",
+  "description": "Kết nối Hanet AI Camera qua MQTT và Webhook (Port 2912). Bản LITE bảo mật",
+  "url": "https://github.com/trankhanhduy2929-beep/my_hass_addon_public",
   "arch": ["aarch64", "amd64", "armv7"],
-  "image": "ghcr.io/trankhanhduy2929-beep/hanet_bridge-{arch}"
+  "startup": "application",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 2912,
+  "panel_icon": "mdi:bridge",
+  "image": "ghcr.io/trankhanhduy2929-beep/hanet_bridge-{arch}",
+  "options": {},
+  "schema": {}
 }
