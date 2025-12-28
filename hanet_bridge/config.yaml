@@ -7,4 +7,4 @@ arch:
   - aarch64
   - armv7
 # HA sẽ tự động thay {arch} bằng chip máy khách để lấy đúng bản Nuitka đã build
-image: "ghcr.io/trankhanhduy2929-beep/hanet_bridge-{arch}"
+image: "ghcr.io/trankhanhduy2929-beep/hanet_bridge-{arch}:latest"
