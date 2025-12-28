@@ -1,6 +1,6 @@
 name: "YouTube Music Cinematic"
 description: "Addon này đã được mã hóa bảo mật hoàn toàn."
-version: "1.14.0"
+version: "1.14.1"
 slug: "youtube_cast_addon"
 arch:
   - amd64

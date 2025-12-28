@@ -1,6 +1,6 @@
 name: "Hanet Camera Bridge Pro"
 description: "Addon này đã được mã hóa bảo mật hoàn toàn."
-version: "3.0.0"
+version: "3.0.1"
 slug: "hanet_bridge_pro"
 arch:
   - amd64
