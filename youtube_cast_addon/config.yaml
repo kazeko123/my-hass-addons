@@ -1,0 +1,10 @@
+name: "YouTube Music Cinematic"
+description: "Addon này đã được mã hóa bảo mật hoàn toàn."
+version: "1.14.0"
+slug: "youtube_cast_addon"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+# HA sẽ tự động thay {arch} bằng chip máy khách để lấy đúng bản Nuitka đã build
+image: "ghcr.io/trankhanhduy2929-beep/my-addon-{arch}"
