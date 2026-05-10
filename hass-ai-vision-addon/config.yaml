@@ -2,7 +2,7 @@ name: "AI Vision Entity Describer"
 version: "1.1.1"
 slug: "ai_vision_entity_describer"
 description: "AI Vision Pro: persistent config, compact AI camera history table, and retention limits"
-url: "url: "https://github.com/home-assistant/addons""
+url: "https://github.com/trankhanhduy2929-beep/my_hass_addon_public"
 arch:
   - amd64
   - aarch64
