@@ -25,7 +25,7 @@ Source code chi tiết được quản lý ở kho private, còn kho public tậ
 
 1. Vào **Settings → Add-ons → Add-on Store**
 2. Nhấn menu **⋮** góc phải → **Repositories**
-3. Dán URL repository public (Git URL)
+3. Dán URL repository public ([Git URL](https://github.com/trankhanhduy2929-beep/my_hass_addon_public))
 4. Nhấn **Add**
 5. Quay lại Add-on Store để cài add-on mong muốn
 
