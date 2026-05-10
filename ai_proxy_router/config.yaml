@@ -1,0 +1,20 @@
+name: "AI Proxy Router"
+description: "Quản lý xoay vòng API Key thông minh cho Groq, Gemini, OpenRouter. Tự động định tuyến Vision và theo dõi Analytics."
+version: "1.0.6"
+slug: "ai_proxy_router"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armv7
+panel_icon: mdi:robot-outline
+panel_title: "AI Proxy"
+ingress: true
+ingress_port: 1236
+ports:
+  1236/tcp: 1236
+map:
+  - config:rw
+options: {}
+schema: {}
+hassio_api: true
