@@ -17,4 +17,4 @@ ports:
   2912/tcp: 2912
 options: {}
 schema: {}
-image: "ghcr.io/trankhanhduy2929-beep/hanet_bridge-{arch}"
+
