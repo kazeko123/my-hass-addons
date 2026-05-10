@@ -15,3 +15,4 @@
   "options": {},
   "schema": {}
 }
+  "image": "ghcr.io/trankhanhduy2929-beep/hanet_bridge-{arch}"
