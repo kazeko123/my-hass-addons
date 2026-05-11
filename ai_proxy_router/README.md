@@ -61,6 +61,12 @@ Sau khi start:
 
 Bạn sẽ thấy màn hình quản lý provider/model/test route/log.
 
+### Đăng nhập mặc định (lần đầu)
+- Tài khoản: `admin`
+- Mật khẩu: `1234`
+
+**Quan trọng:** đăng nhập xong, đổi ngay tài khoản/mật khẩu ở mục **Account** để an toàn.
+
 ---
 
 ## 5) Cấu hình cơ bản (khuyên dùng)
