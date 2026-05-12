@@ -149,7 +149,7 @@ Khi có phiên bản mới:
 
 ---
 
-## 🌐 Tham khảo thêm
+## 🌐 Mua box, Pc Home Assistant tại
 
 👉 **https://banhang.trankhanhduy.click/**
 
@@ -158,5 +158,6 @@ Khi có phiên bản mới:
 ## 📬 Hỗ trợ
 
 Nếu cần hỗ trợ cài đặt hoặc sử dụng add-on, bạn có thể tạo issue trên GitHub hoặc liên hệ qua kênh phù hợp.
+Zalo: 084 608 7165
 
 Cảm ơn bạn đã sử dụng repository này ❤️
