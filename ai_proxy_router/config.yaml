@@ -18,4 +18,3 @@ map:
 options: {}
 schema: {}
 hassio_api: true
-image: "ghcr.io/trankhanhduy2929-beep/ai_proxy_router-{arch}"
