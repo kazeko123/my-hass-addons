@@ -19,3 +19,5 @@ ports:
   1237/tcp: 1237
 map:
   - addon_config:rw
+image: "ghcr.io/trankhanhduy2929-beep/hass-ai-vision-addon-{arch}"
+  
