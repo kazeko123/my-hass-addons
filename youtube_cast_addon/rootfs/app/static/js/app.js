@@ -229,8 +229,9 @@ async function restoreNowPlaying() {
         }
         updatePlayerUI(video);
         showMiniPlayer(video);
-        document.getElementById('selectedDeviceName').textContent =
-          state.selectedDevice ? state.selectedDevice.name : 'Điện thoại';
+        const dName = state.selectedDevice ? state.selectedDevice.name : 'Điện thoại';
+        document.getElementById('selectedDeviceName').textContent = dName;
+        document.getElementById('playDeviceName').textContent = dName;
         // Start polling device if applicable
         if (state.selectedDevice) {
           pollDeviceState();
@@ -351,6 +352,11 @@ function startProgressTimer() {
     if (!state.selectedDevice && !audio.paused) {
       state.currentTime = audio.currentTime;
       state.duration = audio.duration || 0;
+      updateProgress(state.currentTime, state.duration);
+    } else if (state.selectedDevice && state.isPlaying) {
+      // Local smooth increment for cast devices
+      state.currentTime += 1;
+      if (state.duration > 0 && state.currentTime > state.duration) state.currentTime = state.duration;
       updateProgress(state.currentTime, state.duration);
     }
   }, 1000);

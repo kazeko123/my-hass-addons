@@ -233,28 +233,37 @@ def video_info(video_id):
 
 @app.route('/api/proxy-stream/<video_id>')
 def proxy_stream(video_id):
-    """Proxy the audio stream"""
+    """Proxy the audio stream with Range support"""
     try:
         stream_url = get_stream_url(video_id)
         if not stream_url:
             return jsonify({'error': 'Cannot get stream URL'}), 404
         
+        req_headers = {}
+        if 'Range' in request.headers:
+            req_headers['Range'] = request.headers['Range']
+            
+        r = requests.get(stream_url, headers=req_headers, stream=True, timeout=60)
+        
         def generate():
-            with requests.get(stream_url, stream=True, timeout=60) as r:
-                for chunk in r.iter_content(chunk_size=8192):
-                    if chunk:
-                        yield chunk
-        
-        resp = requests.head(stream_url, timeout=10)
-        content_type = resp.headers.get('Content-Type', 'audio/mp4')
-        
+            for chunk in r.iter_content(chunk_size=8192):
+                if chunk:
+                    yield chunk
+                    
+        headers = {
+            'Accept-Ranges': 'bytes',
+            'Cache-Control': 'no-cache',
+            'Content-Type': r.headers.get('Content-Type', 'audio/mp4')
+        }
+        if 'Content-Range' in r.headers:
+            headers['Content-Range'] = r.headers['Content-Range']
+        if 'Content-Length' in r.headers:
+            headers['Content-Length'] = r.headers['Content-Length']
+            
         return Response(
             stream_with_context(generate()),
-            content_type=content_type,
-            headers={
-                'Accept-Ranges': 'bytes',
-                'Cache-Control': 'no-cache',
-            }
+            status=r.status_code,
+            headers=headers
         )
     except Exception as e:
         logger.error(f'Proxy stream error: {e}')
