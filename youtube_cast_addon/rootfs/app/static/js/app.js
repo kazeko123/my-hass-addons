@@ -19,6 +19,9 @@ const state = {
   playerPollTimer: null,
 };
 
+// Map lưu full video data theo id - dùng để build queue đầy đủ
+const videoDataMap = new Map();
+
 const audio = document.getElementById('audioPlayer');
 
 // ===== THEME =====
@@ -85,6 +88,9 @@ function loadMore() {
 function appendVideoCards(videos) {
   const container = document.getElementById('videoItems');
   videos.forEach(v => {
+    // Lưu full data vào map để queue dùng sau
+    videoDataMap.set(v.id, v);
+
     const div = document.createElement('div');
     div.className = 'video-card' + (state.currentVideo?.id === v.id ? ' playing' : '');
     div.id = 'vc-' + v.id;
@@ -110,19 +116,20 @@ function appendVideoCards(videos) {
 // ===== PLAY VIDEO =====
 async function playVideo(video, fromQueue = false) {
   if (!fromQueue) {
-    // build queue from current visible list
+    // Build queue từ danh sách đang hiển thị, dùng videoDataMap để lấy full data
     const items = document.querySelectorAll('.video-card');
     state.queue = [];
     items.forEach(el => {
       const id = el.id.replace('vc-', '');
-      if (id) {
-        // Find from rendered data - use video's id match
-        state.queue.push({ id });
-      }
+      if (!id) return;
+      // Lấy full object từ map, fallback về {id} nếu chưa có
+      state.queue.push(videoDataMap.get(id) || { id });
     });
     state.queueIndex = state.queue.findIndex(q => q.id === video.id);
     if (state.queueIndex === -1) state.queueIndex = 0;
+    // Đảm bảo vị trí hiện tại có full data
     state.queue[state.queueIndex] = video;
+    videoDataMap.set(video.id, video);
   }
 
   state.currentVideo = video;
@@ -252,13 +259,33 @@ function togglePlayPause() {
   }
 }
 
-function playNext() {
+function playNext(autoEnded = false) {
   if (!state.queue.length) return;
-  let next = state.queueIndex + 1;
-  if (state.shuffle) next = Math.floor(Math.random() * state.queue.length);
-  if (next >= state.queue.length) next = 0;
+
+  let next;
+  if (state.shuffle) {
+    // Phát ngẫu nhiên, tránh lặp lại bài cũ
+    do { next = Math.floor(Math.random() * state.queue.length); }
+    while (state.queue.length > 1 && next === state.queueIndex);
+  } else {
+    next = state.queueIndex + 1;
+  }
+
+  // Nếu hết danh sách
+  if (next >= state.queue.length) {
+    if (state.repeat === 'all') {
+      next = 0; // Lặp lại từ đầu
+    } else {
+      // Không repeat: dừng lại, không tự phát
+      state.isPlaying = false;
+      setPlayState(false, false);
+      return;
+    }
+  }
+
   state.queueIndex = next;
   const v = state.queue[next];
+  // Nếu video chỉ có id (chưa load full data), vẫn chơi được vì playVideo sẽ fetch stream theo id
   if (v) playVideo(v, true);
 }
 
@@ -623,8 +650,9 @@ async function deleteTimer(idx) {
 
 // ===== AUDIO EVENTS =====
 audio.addEventListener('ended', () => {
-  if (state.repeat === 'one') { audio.play(); return; }
-  playNext();
+  if (state.repeat === 'one') { audio.currentTime = 0; audio.play(); return; }
+  // Luôn phát bài tiếp theo (playNext sẽ tự dừng nếu hết list và không repeat)
+  playNext(true);
 });
 audio.addEventListener('timeupdate', () => {
   updateProgress(audio.currentTime, audio.duration || 0);

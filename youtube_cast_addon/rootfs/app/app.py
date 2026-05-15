@@ -5,12 +5,25 @@ Backend Flask application
 """
 
 import os
+import sys
 import json
 import logging
 import requests
 import subprocess
 import threading
 import time
+import shutil
+
+# Auto-detect yt-dlp command
+def _find_ytdlp():
+    # Try yt-dlp binary first
+    cmd = shutil.which('yt-dlp') or shutil.which('yt-dlp.exe')
+    if cmd:
+        return [cmd]
+    # Fallback: python -m yt_dlp
+    return [sys.executable, '-m', 'yt_dlp']
+
+YTDLP_CMD = _find_ytdlp()
 from flask import Flask, render_template, request, jsonify, Response, stream_with_context
 from flask_cors import CORS
 
@@ -82,7 +95,7 @@ def search_youtube(query, max_results=20):
             query = 'nhạc hay 2025 top hits'
         
         cmd = [
-            'yt-dlp',
+            *YTDLP_CMD,
             f'ytsearch{max_results}:{query}',
             '--dump-json',
             '--no-playlist',
@@ -127,7 +140,7 @@ def get_stream_url(video_id):
     try:
         youtube_url = f'https://www.youtube.com/watch?v={video_id}'
         cmd = [
-            'yt-dlp',
+            *YTDLP_CMD,
             '-f', 'bestaudio[ext=m4a]/bestaudio/best',
             '--get-url',
             '--no-playlist',
@@ -149,7 +162,7 @@ def get_video_info(video_id):
     try:
         youtube_url = f'https://www.youtube.com/watch?v={video_id}'
         cmd = [
-            'yt-dlp',
+            *YTDLP_CMD,
             '--dump-json',
             '--no-playlist',
             '--no-warnings',
