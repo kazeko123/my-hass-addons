@@ -1,17 +1,8 @@
-# HASS Supervisor passes BUILD_ARCH and BUILD_VERSION, NOT BUILD_FROM
-# build.yaml tells supervisor what BUILD_FROM to use
 ARG BUILD_FROM
-FROM ${BUILD_FROM:-homeassistant/amd64-base-python:3.11}
+FROM ${BUILD_FROM}
 
 ARG BUILD_ARCH
 ARG BUILD_VERSION
-
-LABEL \
-    io.hass.name="YouTube Music Cinematic" \
-    io.hass.description="Trình phát nhạc YouTube cao cấp trên Home Assistant" \
-    io.hass.version="${BUILD_VERSION}" \
-    io.hass.type="addon" \
-    io.hass.arch="${BUILD_ARCH}"
 
 # Install system dependencies
 RUN apk add --no-cache \

@@ -1,9 +1,4 @@
 
-#1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 428B done
-#1 WARN: InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
-#1 DONE 0.0s
-
  [33m1 warning found (use docker --debug to expand):
 [0m - InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
 Dockerfile:2
@@ -15,86 +10,91 @@ Dockerfile:2
 --------------------
 ERROR: failed to build: failed to solve: base name ($BUILD_FROM) should not be blank
 [0m
-[32m2026-05-15 10:34:45.153 INFO (MainThread) [supervisor.docker.manager] Stopping addon_011a0c26_youtube_cast_addon application[0m
-[32m2026-05-15 10:34:48.332 INFO (MainThread) [supervisor.docker.manager] Cleaning addon_011a0c26_youtube_cast_addon application[0m
-[32m2026-05-15 10:34:56.040 INFO (MainThread) [supervisor.docker.addon] Starting build for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18[0m
-[32m2026-05-15 10:34:56.044 INFO (MainThread) [supervisor.docker.manager] Running command '['docker', 'buildx', 'build', '.', '--tag', '6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18', '--file', 'Dockerfile', '--platform', 'linux/amd64', '--pull', '--label', 'io.hass.version=1.20.18', '--label', 'io.hass.arch=amd64', '--label', 'io.hass.type=app', '--label', 'io.hass.name=YouTube Music Cinematic', '--label', 'io.hass.description=Trình phát nhạc YouTube cao cấp: Tự đề xuất, Infinite Scroll, Proxy Stream & Favorites', '--build-arg', 'BUILD_VERSION=1.20.18', '--build-arg', 'BUILD_ARCH=amd64']' on docker:29.3.1-cli[0m
-[31m2026-05-15 10:34:56.715 ERROR (MainThread) [supervisor.docker.addon] Docker build failed for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18 (exit code 1). Build output:
+[32m2026-05-15 11:14:31.380 INFO (MainThread) [supervisor.store.git] Update app /data/addons/core repository from https://github.com/home-assistant/addons[0m
+[32m2026-05-15 11:14:31.381 INFO (MainThread) [supervisor.store.git] Update app /data/addons/git/5c53de3b repository from https://github.com/esphome/home-assistant-addon[0m
+[32m2026-05-15 11:14:31.381 INFO (MainThread) [supervisor.store.git] Update app /data/addons/git/d5369777 repository from https://github.com/music-assistant/home-assistant-addon[0m
+[32m2026-05-15 11:14:31.381 INFO (MainThread) [supervisor.store.git] Update app /data/addons/git/a0d7b954 repository from https://github.com/hassio-addons/repository[0m
+[32m2026-05-15 11:14:31.385 INFO (MainThread) [supervisor.store.git] Update app /data/addons/git/6fe70ea6 repository from https://github.com/kazeko123/my-hass-addons[0m
+[32m2026-05-15 11:14:31.386 INFO (MainThread) [supervisor.store.git] Update app /data/addons/git/fc57b866 repository from https://github.com/pssc/ha-addon-lms/[0m
+[32m2026-05-15 11:14:31.390 INFO (MainThread) [supervisor.store.git] Update app /data/addons/git/bac75787 repository from https://github.com/pssc/ha-addon-squeezelite[0m
+[32m2026-05-15 11:14:31.390 INFO (MainThread) [supervisor.store.git] Update app /data/addons/git/011a0c26 repository from https://github.com/trankhanhduy2929-beep/my_hass_addon_public[0m
+[33m2026-05-15 11:14:34.507 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Hanet Camera Bridge[0m
+[33m2026-05-15 11:14:34.509 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of AI Proxy Router[0m
+[33m2026-05-15 11:14:34.511 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of AI Vision Entity Describer[0m
+[33m2026-05-15 11:14:34.514 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7']. Please report this to the maintainer of YouTube Music Cinematic[0m
+[33m2026-05-15 11:14:34.521 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 3[0m
+[33m2026-05-15 11:14:34.522 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 2[0m
+[33m2026-05-15 11:14:34.523 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 4[0m
+[33m2026-05-15 11:14:34.524 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 5[0m
+[33m2026-05-15 11:14:34.526 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 1[0m
+[33m2026-05-15 11:14:34.527 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 7[0m
+[33m2026-05-15 11:14:34.529 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite[0m
+[33m2026-05-15 11:14:34.530 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 8[0m
+[33m2026-05-15 11:14:34.531 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 6[0m
+[33m2026-05-15 11:14:34.532 WARNING (SyncWorker_3) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Squeezelite Clone 9[0m
+[33m2026-05-15 11:14:34.534 WARNING (SyncWorker_0) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of Hanet Camera Bridge[0m
+[33m2026-05-15 11:14:34.536 WARNING (SyncWorker_0) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of AI Proxy Router[0m
+[33m2026-05-15 11:14:34.536 WARNING (SyncWorker_0) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of AI Vision Entity Describer[0m
+[33m2026-05-15 11:14:34.537 WARNING (SyncWorker_0) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7']. Please report this to the maintainer of YouTube Music Cinematic[0m
+[33m2026-05-15 11:14:34.541 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armhf', 'armv7', 'i386']. Please report this to the maintainer of LMS Lyrion Music Server(Formerly Logitech Media Server)[0m
+[33m2026-05-15 11:14:34.600 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of Log Viewer[0m
+[33m2026-05-15 11:14:34.601 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'Log Viewer' uses deprecated 'codenotary' field in config. This field is no longer used and will be ignored. Please report this to the maintainer.[0m
+[33m2026-05-15 11:14:34.606 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'SQLite Web' uses deprecated 'advanced' field in config. This field is ignored by the Supervisor. Please report this to the maintainer.[0m
+[33m2026-05-15 11:14:34.612 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of MQTT IO[0m
+[33m2026-05-15 11:14:34.612 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'MQTT IO' uses deprecated 'codenotary' field in config. This field is no longer used and will be ignored. Please report this to the maintainer.[0m
+[33m2026-05-15 11:14:34.629 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of InfluxDB[0m
+[33m2026-05-15 11:14:34.630 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'InfluxDB' uses deprecated 'codenotary' field in config. This field is no longer used and will be ignored. Please report this to the maintainer.[0m
+[33m2026-05-15 11:14:34.634 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'Folding@home' uses deprecated 'codenotary' field in config. This field is no longer used and will be ignored. Please report this to the maintainer.[0m
+[33m2026-05-15 11:14:34.637 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of Overseerr[0m
+[33m2026-05-15 11:14:34.637 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'Overseerr' uses deprecated 'codenotary' field in config. This field is no longer used and will be ignored. Please report this to the maintainer.[0m
+[33m2026-05-15 11:14:34.641 WARNING (SyncWorker_1) [supervisor.addons.validate] App config 'arch' uses deprecated values ['armv7']. Please report this to the maintainer of Nginx Proxy Manager[0m
+[33m2026-05-15 11:14:34.641 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'Nginx Proxy Manager' uses deprecated 'codenotary' field in config. This field is no longer used and will be ignored. Please report this to the maintainer.[0m
+[33m2026-05-15 11:14:34.645 WARNING (SyncWorker_1) [supervisor.addons.validate] App 'Traccar' uses deprecated 'codenotary' field in config. This field is no longer used and will be ignored. Please report this to the maintainer.[0m
+[32m2026-05-15 11:14:34.656 INFO (MainThread) [supervisor.store] Loading apps from store: 100 all - 0 new - 0 remove[0m
+[33m2026-05-15 11:14:41.631 WARNING (MainThread) [supervisor.addons.build] App 6fe70ea6_youtube_cast_addon uses build.yaml which is deprecated. Move build parameters into the Dockerfile directly.[0m
+[32m2026-05-15 11:14:41.631 INFO (MainThread) [supervisor.docker.addon] Starting build for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.20[0m
+[32m2026-05-15 11:14:41.633 INFO (MainThread) [supervisor.docker.manager] Running command '['docker', 'buildx', 'build', '.', '--tag', '6fe70ea6/amd64-addon-youtube_cast_addon:1.20.20', '--file', 'Dockerfile', '--platform', 'linux/amd64', '--pull', '--label', 'io.hass.version=1.20.20', '--label', 'io.hass.arch=amd64', '--label', 'io.hass.type=app', '--label', 'io.hass.name=YouTube Music Cinematic', '--label', 'io.hass.description=Trình phát nhạc YouTube cao cấp: Tự đề xuất, Infinite Scroll, Proxy Stream & Favorites', '--build-arg', 'BUILD_VERSION=1.20.20', '--build-arg', 'BUILD_ARCH=amd64', '--build-arg', 'BUILD_FROM=homeassistant/amd64-base-python:3.11']' on docker:29.3.1-cli[0m
+[31m2026-05-15 11:14:43.905 ERROR (MainThread) [supervisor.docker.addon] Docker build failed for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.20 (exit code 1). Build output:
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 428B done
-#1 WARN: InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
+#1 transferring dockerfile: 891B done
 #1 DONE 0.0s
 
- [33m1 warning found (use docker --debug to expand):
-[0m - InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
-Dockerfile:2
+#2 [internal] load metadata for docker.io/homeassistant/amd64-base-python:3.11
+#2 ERROR: docker.io/homeassistant/amd64-base-python:3.11: not found
+------
+ > [internal] load metadata for docker.io/homeassistant/amd64-base-python:3.11:
+------
+Dockerfile:4
 --------------------
-   1 |     ARG BUILD_FROM
-   2 | >>> FROM $BUILD_FROM
-   3 |     
-   4 |     # Install system dependencies
+   2 |     # build.yaml tells supervisor what BUILD_FROM to use
+   3 |     ARG BUILD_FROM
+   4 | >>> FROM ${BUILD_FROM:-homeassistant/amd64-base-python:3.11}
+   5 |     
+   6 |     ARG BUILD_ARCH
 --------------------
-ERROR: failed to build: failed to solve: base name ($BUILD_FROM) should not be blank
+ERROR: failed to build: failed to solve: homeassistant/amd64-base-python:3.11: failed to resolve source metadata for docker.io/homeassistant/amd64-base-python:3.11: docker.io/homeassistant/amd64-base-python:3.11: not found
 [0m
-[31m2026-05-15 10:34:56.716 ERROR (MainThread) [supervisor.addons.addon] Could not build image for app 6fe70ea6_youtube_cast_addon: Docker build failed for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18 (exit code 1). Build output:
+[31m2026-05-15 11:14:43.905 ERROR (MainThread) [supervisor.addons.addon] Could not build image for app 6fe70ea6_youtube_cast_addon: Docker build failed for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.20 (exit code 1). Build output:
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 428B done
-#1 WARN: InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
+#1 transferring dockerfile: 891B done
 #1 DONE 0.0s
 
- [33m1 warning found (use docker --debug to expand):
-[0m - InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
-Dockerfile:2
+#2 [internal] load metadata for docker.io/homeassistant/amd64-base-python:3.11
+#2 ERROR: docker.io/homeassistant/amd64-base-python:3.11: not found
+------
+ > [internal] load metadata for docker.io/homeassistant/amd64-base-python:3.11:
+------
+Dockerfile:4
 --------------------
-   1 |     ARG BUILD_FROM
-   2 | >>> FROM $BUILD_FROM
-   3 |     
-   4 |     # Install system dependencies
+   2 |     # build.yaml tells supervisor what BUILD_FROM to use
+   3 |     ARG BUILD_FROM
+   4 | >>> FROM ${BUILD_FROM:-homeassistant/amd64-base-python:3.11}
+   5 |     
+   6 |     ARG BUILD_ARCH
 --------------------
-ERROR: failed to build: failed to solve: base name ($BUILD_FROM) should not be blank
+ERROR: failed to build: failed to solve: homeassistant/amd64-base-python:3.11: failed to resolve source metadata for docker.io/homeassistant/amd64-base-python:3.11: docker.io/homeassistant/amd64-base-python:3.11: not found
 [0m
-[32m2026-05-15 10:39:10.259 INFO (MainThread) [supervisor.docker.addon] Starting build for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18[0m
-[32m2026-05-15 10:39:10.261 INFO (MainThread) [supervisor.docker.manager] Running command '['docker', 'buildx', 'build', '.', '--tag', '6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18', '--file', 'Dockerfile', '--platform', 'linux/amd64', '--pull', '--label', 'io.hass.version=1.20.18', '--label', 'io.hass.arch=amd64', '--label', 'io.hass.type=app', '--label', 'io.hass.name=YouTube Music Cinematic', '--label', 'io.hass.description=Trình phát nhạc YouTube cao cấp: Tự đề xuất, Infinite Scroll, Proxy Stream & Favorites', '--build-arg', 'BUILD_VERSION=1.20.18', '--build-arg', 'BUILD_ARCH=amd64']' on docker:29.3.1-cli[0m
-[31m2026-05-15 10:39:10.957 ERROR (MainThread) [supervisor.docker.addon] Docker build failed for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18 (exit code 1). Build output:
-#0 building with "default" instance using docker driver
-
-#1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 428B done
-#1 WARN: InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
-#1 DONE 0.0s
-
- [33m1 warning found (use docker --debug to expand):
-[0m - InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
-Dockerfile:2
---------------------
-   1 |     ARG BUILD_FROM
-   2 | >>> FROM $BUILD_FROM
-   3 |     
-   4 |     # Install system dependencies
---------------------
-ERROR: failed to build: failed to solve: base name ($BUILD_FROM) should not be blank
-[0m
-[31m2026-05-15 10:39:10.959 ERROR (MainThread) [supervisor.addons.addon] Could not build image for app 6fe70ea6_youtube_cast_addon: Docker build failed for 6fe70ea6/amd64-addon-youtube_cast_addon:1.20.18 (exit code 1). Build output:
-#0 building with "default" instance using docker driver
-
-#1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 428B done
-#1 WARN: InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
-#1 DONE 0.0s
-
- [33m1 warning found (use docker --debug to expand):
-[0m - InvalidDefaultArgInFrom: Default value for ARG $BUILD_FROM results in empty or invalid base image name (line 2)
-Dockerfile:2
---------------------
-   1 |     ARG BUILD_FROM
-   2 | >>> FROM $BUILD_FROM
-   3 |     
-   4 |     # Install system dependencies
---------------------
-ERROR: failed to build: failed to solve: base name ($BUILD_FROM) should not be blank
-[0m
-[32m2026-05-15 10:40:27.126 INFO (MainThread) [supervisor.homeassistant.api] Updated Home Assistant API token[0m
