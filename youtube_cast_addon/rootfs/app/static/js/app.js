@@ -62,7 +62,7 @@ async function doSearch(reset = true) {
   if (reset) document.getElementById('videoItems').innerHTML = '';
   document.getElementById('btnClearSearch').style.display = q ? 'block' : 'none';
   try {
-    const r = await fetch(`/api/search?q=${encodeURIComponent(q)}&page=${state.searchPage}&per_page=20`);
+    const r = await fetch(`api/search?q=${encodeURIComponent(q)}&page=${state.searchPage}&per_page=20`);
     const data = await r.json();
     if (data.success) {
       appendVideoCards(data.videos);
@@ -96,7 +96,7 @@ function appendVideoCards(videos) {
     div.id = 'vc-' + v.id;
     div.innerHTML = `
       <div class="video-thumb-wrap" onclick="playVideo(${JSON.stringify(v).replace(/"/g,'&quot;')})">
-        <img class="video-thumb" src="${v.thumbnail}" loading="lazy" onerror="this.src='/static/img/placeholder.svg'">
+        <img class="video-thumb" src="${v.thumbnail}" loading="lazy" onerror="this.src='static/img/placeholder.svg'">
         <span class="video-duration">${formatDuration(v.duration)}</span>
       </div>
       <div class="video-info" onclick="playVideo(${JSON.stringify(v).replace(/"/g,'&quot;')})">
@@ -152,7 +152,7 @@ async function playVideo(video, fromQueue = false) {
 
 async function playOnPhone(video) {
   try {
-    const r = await fetch(`/api/stream/${video.id}`);
+    const r = await fetch(`api/stream/${video.id}`);
     const data = await r.json();
     if (data.success) {
       audio.src = data.url;
@@ -179,7 +179,7 @@ async function playOnPhone(video) {
 
 async function castToDevice(video) {
   try {
-    const r = await fetch('/api/cast', {
+    const r = await fetch('api/cast', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ entity_id: state.selectedDevice.entity_id, video_id: video.id, title: video.title })
@@ -202,7 +202,7 @@ async function castToDevice(video) {
 // ===== SAVE / RESTORE NOW PLAYING (FIX #2) =====
 async function saveNowPlaying(video) {
   try {
-    await fetch('/api/now-playing', {
+    await fetch('api/now-playing', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
@@ -216,7 +216,7 @@ async function saveNowPlaying(video) {
 
 async function restoreNowPlaying() {
   try {
-    const r = await fetch('/api/now-playing');
+    const r = await fetch('api/now-playing');
     const data = await r.json();
     if (data.success && data.state) {
       const { video, deviceId } = data.state;
@@ -249,7 +249,7 @@ function togglePlayPause() {
     setPlayState(state.isPlaying, false);
   } else {
     const action = state.isPlaying ? 'pause' : 'play';
-    fetch('/api/player/control', {
+    fetch('api/player/control', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ entity_id: state.selectedDevice.entity_id, action })
@@ -316,7 +316,7 @@ function setVolume(val) {
   if (!state.selectedDevice) {
     audio.volume = v;
   } else {
-    fetch('/api/player/volume', {
+    fetch('api/player/volume', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ entity_id: state.selectedDevice.entity_id, volume: v })
@@ -335,7 +335,7 @@ function seekTo(event) {
   if (!state.selectedDevice) {
     audio.currentTime = pos;
   } else {
-    fetch('/api/player/seek', {
+    fetch('api/player/seek', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ entity_id: state.selectedDevice.entity_id, position: pos })
@@ -365,7 +365,7 @@ function startDevicePoll() {
 async function pollDeviceState() {
   if (!state.selectedDevice) return;
   try {
-    const r = await fetch(`/api/player/${state.selectedDevice.entity_id}/state`);
+    const r = await fetch(`api/player/${state.selectedDevice.entity_id}/state`);
     const data = await r.json();
     if (data.success) {
       const s = data.state;
@@ -456,7 +456,7 @@ function closeDeviceModal() {
 
 async function loadPlayers() {
   try {
-    const r = await fetch('/api/players');
+    const r = await fetch('api/players');
     const data = await r.json();
     if (data.success) state.players = data.players;
   } catch(e) {}
@@ -505,7 +505,7 @@ function selectDevice(player) {
 // ===== PLAYLIST =====
 async function loadPlaylists() {
   try {
-    const r = await fetch('/api/playlists');
+    const r = await fetch('api/playlists');
     const data = await r.json();
     if (data.success) state.playlists = data.playlists;
   } catch(e) {}
@@ -539,7 +539,7 @@ async function createPlaylist() {
 }
 
 async function savePlaylist(pl) {
-  await fetch('/api/playlists', {
+  await fetch('api/playlists', {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify(pl)
@@ -549,7 +549,7 @@ async function savePlaylist(pl) {
 async function deletePlaylist(id) {
   if (!confirm('Xóa playlist này?')) return;
   state.playlists = state.playlists.filter(p => p.id !== id);
-  await fetch(`/api/playlists/${id}`, { method: 'DELETE' });
+  await fetch(`api/playlists/${id}`, { method: 'DELETE' });
   renderPlaylists();
 }
 
@@ -595,7 +595,7 @@ async function addSongToPlaylist(plId) {
 // ===== TIMERS =====
 async function loadTimers() {
   try {
-    const r = await fetch('/api/timers');
+    const r = await fetch('api/timers');
     const data = await r.json();
     if (data.success) state.timers = data.timers;
   } catch(e) {}
@@ -632,19 +632,19 @@ async function addTimer() {
   const minute = parseInt(document.getElementById('timerMinute').value) || 0;
   const timer = { id: Date.now().toString(), days, hour, minute, action: selectedAction, enabled: true };
   state.timers.push(timer);
-  await fetch('/api/timers', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(state.timers) });
+  await fetch('api/timers', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(state.timers) });
   renderTimers();
 }
 
 async function toggleTimer(idx) {
   state.timers[idx].enabled = !state.timers[idx].enabled;
-  await fetch('/api/timers', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(state.timers) });
+  await fetch('api/timers', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(state.timers) });
   renderTimers();
 }
 
 async function deleteTimer(idx) {
   state.timers.splice(idx, 1);
-  await fetch('/api/timers', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(state.timers) });
+  await fetch('api/timers', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(state.timers) });
   renderTimers();
 }
 
