@@ -1,8 +1,8 @@
-ARG BUILD_FROM
-FROM ${BUILD_FROM}
-
 ARG BUILD_ARCH
+FROM ghcr.io/home-assistant/${BUILD_ARCH}-base-python:3.14-alpine3.23
+
 ARG BUILD_VERSION
+ARG BUILD_ARCH
 
 # Install system dependencies
 RUN apk add --no-cache \
