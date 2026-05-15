@@ -17,4 +17,7 @@ hassio_api: true
 homeassistant_api: true
 
 
-image: "ghcr.io/trankhanhduy2929-beep/youtube_cast_addon-{arch}"
+build:
+  dockerfile: Dockerfile
+  args:
+    BUILD_FROM: "homeassistant/{arch}-base-python:3.11"

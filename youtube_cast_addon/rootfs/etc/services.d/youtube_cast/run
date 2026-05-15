@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bashio
+cd /app
+export FLASK_ENV=production
+exec gunicorn --bind 0.0.0.0:2232 --workers 2 --timeout 120 app:app
