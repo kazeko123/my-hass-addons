@@ -1,6 +1,6 @@
 name: "YouTube Music Cinematic"
 description: "Trình phát nhạc YouTube cao cấp: Tự đề xuất, Infinite Scroll, Proxy Stream & Favorites"
-version: "1.20.18"
+version: "1.20.19"
 slug: "youtube_cast_addon"
 arch:
   - aarch64
@@ -16,8 +16,3 @@ hassio_role: manager
 hassio_api: true
 homeassistant_api: true
 
-
-build:
-  dockerfile: Dockerfile
-  args:
-    BUILD_FROM: "homeassistant/{arch}-base-python:3.11"

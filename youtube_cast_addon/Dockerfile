@@ -3,11 +3,10 @@ FROM $BUILD_FROM
 
 # Install system dependencies
 RUN apk add --no-cache \
-    python3 \
-    py3-pip \
     ffmpeg \
     curl \
-    && pip3 install --no-cache-dir --break-system-packages \
+    bash \
+    && pip3 install --no-cache-dir \
     flask \
     flask-cors \
     yt-dlp \
@@ -18,6 +17,7 @@ RUN apk add --no-cache \
 COPY rootfs /
 
 # Make scripts executable
-RUN chmod +x /etc/services.d/youtube_cast/run
+RUN chmod a+x /etc/services.d/youtube_cast/run
 
-EXPOSE 2232
+# Create data directory
+RUN mkdir -p /data
